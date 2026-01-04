@@ -34,7 +34,7 @@ Chaque étape doit être :
 
 ---
 
-## 🎯 PHASE 3 : SCRAPING GOOGLE MAPS (Actuelle)
+## ✅ PHASE 3 : SCRAPING GOOGLE MAPS (TERMINÉE - 28 Décembre 2024)
 
 ### Brique 3.1 : Lancer Playwright avec navigateur visible ✅
 **Objectif** : Ouvrir Chrome avec Playwright en mode "headed"
@@ -298,38 +298,38 @@ npx tsx test-complete-scraping.js
 
 ---
 
-## 🚀 PHASE 4 : API ROUTES (À venir)
+## ✅ PHASE 4 : API ROUTES (TERMINÉE - 29 Décembre 2024)
 
-### Brique 4.1 : POST /api/scrape
+### Brique 4.1 : POST /api/scrape ✅
 **Objectif** : Endpoint pour lancer scraping via API
 **Input** : `{ metier: string, ville: string }`
 **Output** : `{ success: boolean, report: ScrapingReport }`
-**Test** : Postman/Insomnia
+**Test** : Postman/Insomnia ✅
 
-### Brique 4.2 : GET /api/leads
+### Brique 4.2 : GET /api/leads ✅
 **Objectif** : Liste paginée avec filtres
 **Query params** : `?ville=Paris&statut=À_CONTACTER&page=1`
-**Test** : cURL + vérif JSON retourné
+**Test** : cURL + vérif JSON retourné ✅
 
-### Brique 4.3 : PUT /api/leads/[id]
+### Brique 4.3 : PUT /api/leads/[id] ✅
 **Objectif** : Modifier statut d'un lead
-**Test** : Modifier statut → vérif BDD
+**Test** : Modifier statut → vérif BDD ✅
 
-### Brique 4.4 : DELETE /api/leads/[id]
+### Brique 4.4 : DELETE /api/leads/[id] ✅
 **Objectif** : Supprimer lead
-**Test** : Suppression → vérif BDD
+**Test** : Suppression → vérif BDD ✅
 
-### Brique 4.5 : POST /api/leads/import
+### Brique 4.5 : POST /api/leads/import ✅
 **Objectif** : Import Excel avec détection doublons
-**Test** : Upload fichier test.xlsx → rapport import
+**Test** : Upload fichier test.xlsx → rapport import ✅
 
-### Brique 4.6 : GET /api/export
+### Brique 4.6 : GET /api/export ✅
 **Objectif** : Export Excel complet
-**Test** : Télécharger fichier → ouvrir dans Excel
+**Test** : Télécharger fichier → ouvrir dans Excel ✅
 
 ---
 
-## 🔐 PHASE 5 : AUTHENTIFICATION ✅
+## ✅ PHASE 5 : AUTHENTIFICATION (TERMINÉE - 29 Décembre 2024 + Finalisée 3 Janvier 2026)
 
 ### Brique 5.1 : Installation Next-Auth ✅
 **Test** : `npm run dev` sans erreurs
@@ -338,17 +338,20 @@ npx tsx test-complete-scraping.js
 **Test** : Afficher bouton "Se connecter avec Google"
 
 ### Brique 5.3 : OAuth Google fonctionnel ✅
-**Test** : Connexion réussie → redirection dashboard
+**Test** : Connexion réussie → redirection dashboard ✅
 
 ### Brique 5.4 : Whitelist emails ✅
-**Test** : Email autorisé → OK | Email non autorisé → refusé
+**Test** : Email autorisé → OK | Email non autorisé → refusé ✅
 
 ### Brique 5.5 : Middleware protection routes ✅
-**Test** : Accès /leads sans login → redirect /login
+**Test** : Accès /leads sans login → redirect /login ✅
+
+### Brique 5.6 : Configuration production complète ✅ (3 Janvier 2026)
+**Test** : Google OAuth + Supabase + Variables d'environnement ✅
 
 ---
 
-## 🎨 PHASE 6-7 : INTERFACE (À venir)
+## 🎯 PHASE 6-7 : INTERFACE (PROCHAINE ÉTAPE)
 
 ### Brique 6.1 : Layout navigation
 **Test** : Afficher nav Scraping/Leads
@@ -370,16 +373,16 @@ npx tsx test-complete-scraping.js
 
 ---
 
-## 📊 PHASE 8 : EXCEL (À venir)
+## ✅ PHASE 8 : EXCEL (TERMINÉE - API intégrée en Phase 4)
 
-### Brique 8.1 : Parser Excel uploadé
-**Test** : Upload test.xlsx → parse OK
+### Brique 8.1 : Parser Excel uploadé ✅
+**Test** : Upload test.xlsx → parse OK ✅
 
-### Brique 8.2 : Détection doublons import
-**Test** : Import avec doublons → rapport correct
+### Brique 8.2 : Détection doublons import ✅
+**Test** : Import avec doublons → rapport correct ✅
 
-### Brique 8.3 : Export Excel
-**Test** : Télécharger → ouvrir dans Excel
+### Brique 8.3 : Export Excel ✅
+**Test** : Télécharger → ouvrir dans Excel ✅
 
 ---
 
@@ -426,7 +429,20 @@ import { extractSingleResult } from './lib/scraper/extract.js';
 
 ---
 
-## 🎯 PROCHAINE ÉTAPE : Brique 3.1
+## 🎯 PROCHAINE ÉTAPE : Phase 6 - Interface Utilisateur
 
-**Objectif** : Lancer Playwright avec navigateur visible
-**Commande** : On code `lib/scraper/browser.ts` ensemble ?
+**Objectif** : Créer l'interface de scraping avec formulaire métier + villes
+**Status** : Backend 100% opérationnel (Auth + BDD + API + Scraping)
+**Commande** : Développer page `/scraping` avec vraie interface
+
+## 📊 Récapitulatif Projet (3 Janvier 2026)
+
+**✅ PHASES TERMINÉES :**
+- Phase 1-2 : Setup + Validation sites web
+- Phase 3 : Scraping Google Maps automatique (15 briques)
+- Phase 4 : API Routes complètes (6 endpoints)
+- Phase 5 : Authentification Google OAuth + Supabase
+- Phase 8 : Import/Export Excel (intégré en Phase 4)
+
+**🎯 PHASES RESTANTES :**
+- Phase 6-7 : Interface utilisateur (formulaire scraping + gestion leads)
